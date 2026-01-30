@@ -1,0 +1,36 @@
+import sqlite3
+from datetime import datetime
+
+DB_NAME = 'water_tracker.db'
+
+def create_tables():
+    conn = sqlite3.connect(DB_NAME)
+    cursor = conn.cursor()
+    cursor.execute("""
+            CREATE TABLE IF NOT EXISTS Water_Intake(
+                   id INTEGER PRIMARY KEY AUTOINCREMENT,
+                   user_id TEXT,
+                   intake_ml INTEGER NOT NULL,
+                   date TEXT
+                   )
+        """)
+    conn.commit()
+    conn.close()
+
+def log_intake(user_id, intake_ml):
+    conn = sqlite3.connect(DB_NAME)
+    cursor = conn.cursor()
+    date_today = datetime.now().strftime("%Y-%m-%d")
+    cursor.execute("INSERT INTO Water_Intake (user_id, intake_ml, date) VALUES (?, ?, ?)", (user_id, intake_ml, date_today))
+    conn.commit()
+    conn.close()
+    
+def get_intake(user_id):
+    conn = sqlite3.connect(DB_NAME)
+    cursor = conn.cursor()
+    cursor.execute("SELECT date FROM Water_Intake WHERE user_id = ? ORDER by date DESC LIMIT 1", (user_id))
+    records = cursor.fetchall()
+    conn.close()
+    return records
+    
+create_tables()

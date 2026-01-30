@@ -1,0 +1,38 @@
+langchain
+langchain-openai
+langchain-core
+langchain-community
+langchain-ollama
+openai
+llama-index
+
+
+fastapi
+uvicorn
+
+sqlalchemy
+sqlite-utils
+
+
+python-dotenv
+
+
+loguru
+
+
+apscheduler
+
+
+#CLI Interaction (optional)
+typer
+
+
+streamlit
+
+# echo "# water-tracker-ai" >> README.md
+# git init
+# git add README.md
+# git commit -m "first commit"
+# git branch -M main
+# git remote add origin https://github.com/amitkumh9529/water-tracker-ai.git
+# git push -u origin main
