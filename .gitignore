@@ -1,0 +1,15 @@
+# Secrets
+.env
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Node (if frontend exists)
+node_modules/
+
+# OS junk
+.DS_Store
+Thumbs.db
